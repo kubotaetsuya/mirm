@@ -9,40 +9,52 @@
   </nav>
 
   <div class="main_content">
-    <div class="container">
-    
-      <div class="row">
-        <div class="col bg-info">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Fluid jumbotron</h1>
-              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-            </div>
+    <div class="container d-flex bg-light">
+
+      <div class="row w-50 flex-fill">
+        <div class="col">
+          <h1>MIRMにようこそ！</h1>
+          <p>MIRMは、音楽を制作する人、音楽の知識を学びたい人、楽器の知識を学びたい人、機材の知識を学びたい人、音楽に触れることが好きな人たちが集まりお互いの情報を共有する場所です。
+          </p><br>
+          <p>知りたい教えたいを手助けするサイトです。</p>
+        </div>
+      </div>
+
+    <div class="row w-50 flex-column flex-fill bg-light">
+      <%= form_with model: @user, url:user_registration_path, local: true do |f| %> 
+        <h4>新規登録</h4>
+        <div class="col">
+          <div class="form_label">
+            名前
           </div>
-        </div>                  
-        <div class="col bg-primary">
-        ソーシャルアカウント
+          <%= f.text_field :name, calss:"input-default",id:"name",placeholder:"名前を入れてください",maxlength:"10" %>
         </div>
-      </div>
-      <div class="row">
-        <p>新規登録</p>
-        <div class="col bg-info">
-        名前
+        <div class="col">
+          <div class="form_label">
+            メールアドレス
+          </div>
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"メールアドレスを入れてください", autofocus: true %>
         </div>
-        <div class="col bg-primary">
-        メールアドレス
+        <div class="col">
+          <div class="form_label">
+            パスワード
+          </div>
+          <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+          <p>6文字以上、英・数・記号が使えます</p>
         </div>
-        <div class="col bg-primary">
-        パスワード
+        <%# <div class="col">
+          ロボットじゃ無いよ
+        </div> %>
+        <div class="col">
+          ソーシャルアカウント
         </div>
-        <div class="col bg-primary">
-        ロボットじゃ無いよ
-        </div>
-        利用規約
+          <a href="#">利用規約</a>
         <div class="registration_btn">
-        登録する
+          <%= f.submit "登録をする" ,class:"register-red-btn" %>
         </div>
-      </div>
+      <% end %>
+    </div>
+
     </div>
   </div>
 </div>
