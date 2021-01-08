@@ -1,0 +1,35 @@
+/* login header */
+.login_main{
+  width: 100%;
+  height: 100%;
+}
+
+.login_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.registrations_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* //login header */
+
+/* 背景画像 */
+.sessions_background {
+  background-image: url("../background.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+/* //背景画像 */
+
+
+.session_form_title {
+  font-weight: bold;
+  margin: 10px 0 50px 200px;
+}
