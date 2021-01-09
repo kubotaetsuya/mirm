@@ -7,18 +7,18 @@
     検索フォーム
     </div>
     <div class="header_nav">
-      <% if user_signed_in? %>
+      <%# <% if user_signed_in? %> %>
       <ul>
         <li>ユーザー詳細ページボタ</li>
-        <li>投稿ボタン</li>
+        <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
         <li>ログアウト</li>
       </ul>
-      <% else %>
+      <%# <% else %> %>
       <ul>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
       </ul>
-      <% end %>
+      <%# <% end %> %>
     </div>
   </div>
 </header>
