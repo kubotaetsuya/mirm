@@ -1,6 +1,6 @@
 <div class="post_main">
 
-  <header>
+  <header class="post_header">
     <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
   </header>
 
@@ -8,16 +8,13 @@
     <div class="container">
     <%= form_with model: @post, local: true do |f| %>
       <div class="row">
-      <%= f.file_field :image, autocomplete: "image" %>
-        <p>画像投稿機能</p>
+      <%= f.file_field :image, class:"form_image", autocomplete: "image" %>
       </div>
       <div class="row">
         <%= f.text_field :title, class:"form_title", placeholder:"タイトル" %>
-        <p>タイトル</p>
       </div>
       <div class="row">
-        <%= f.text_area :text, class:"form_text", placeholder:"音楽の知識や技術を共有しよう" %>
-        <p>本文</p>
+        <%= f.text_area :text, class:"form_text", placeholder:"本文を書いてください" %>
       </div>
       <%= f.submit "投稿する", class:"form_submit"%>
     <% end %>
