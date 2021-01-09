@@ -6,15 +6,21 @@
 
   <div class="post_content">
     <div class="container">
+    <%= form_with model: @post, local: true do |f| %>
       <div class="row">
+      <%= f.file_field :image, autocomplete: "image" %>
         <p>画像投稿機能</p>
       </div>
       <div class="row">
+        <%= f.text_field :title, class:"form_title", placeholder:"タイトル" %>
         <p>タイトル</p>
       </div>
       <div class="row">
+        <%= f.text_area :text, class:"form_text", placeholder:"音楽の知識や技術を共有しよう" %>
         <p>本文</p>
       </div>
+      <%= f.submit "投稿する", class:"form_submit"%>
+    <% end %>
     </div>
   </div>
 </div>
