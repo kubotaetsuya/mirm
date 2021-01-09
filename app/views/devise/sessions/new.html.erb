@@ -1,26 +1,37 @@
-<h2>Log in</h2>
+<div class="login_main">
+  <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark bg-transparent">
+    <header class="login_header">
+      <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
+      <div class="registrations_btn">
+        <%= link_to '新規登録はこちら', new_user_registration_path, class: "btn btn-light text-dark " %>
+      </div>
+    </header>
+  </nav>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="sessions_background">
+    <div class="container  d-flex justify-content-center text-light">
+      <div class="row border border-light w-50 py-5 my-5 flex-column">
+        <%= form_with model: @user, url:user_session_path, class: 'registration-main', local: true do |f| %>
+        <h3 class="session_form_title">ログイン</h3>
+          <div class="col">
+            ソーシャルSNS
+          </div>
+          <div class="col">
+          <label class="form_label">
+            メールアドレス
+          </label>
+            <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+          </div>
+          <div class="col">
+          <label class="form_label">
+            パスワード
+          </label>
+            <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
+            <p class="password_info">6文字以上、英・数・記号が使えます</p>
+          </div>
+          <%= f.submit "ログイン" ,class:"registration_form_btn" %></div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

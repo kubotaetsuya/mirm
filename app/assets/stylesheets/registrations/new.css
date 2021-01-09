@@ -1,0 +1,74 @@
+/* registration header要素 */
+.registration_main {
+  width: 100%;
+  height: 100%;
+}
+
+.registration_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* //registration header要素 */
+
+/* 背景画像 */
+.registration_background {
+  background-image: url("../background.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+/* //背景画像 */
+
+/* left contents */
+.jumbotron_title {
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+/* //left contents */
+
+/* right contents */
+.registration_form_title {
+  font-weight: bold;
+  margin: 10px 0 50px 100px;
+}
+
+.registration_form_btn {
+  width: 136px;
+  height: 36px;
+  background-color: rgba(255, 255, 0, 0.932);
+  margin: 1em 0 1em 13px;
+  border: 2px black solid;
+  border-radius: 10px;
+}
+
+.form_label {
+  font-size: 12px;
+  margin: 12px 20px;
+}
+
+.input-default {
+  width: 100%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.password_info {
+  font-size: 12px;
+  margin: 12px 20px;
+}
+/* //right contents */
