@@ -16,3 +16,20 @@
   height: 100%;
 }
 
+.post_field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.post_form_image {
+  
+}
+
+.post_form_title {
+  width: 100%;
+}
+
+.form_text {
+  width: 100%;
+}

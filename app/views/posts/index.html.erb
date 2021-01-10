@@ -11,7 +11,7 @@
       <ul>
         <li>ユーザー詳細ページボタ</li>
         <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
-        <li>ログアウト</li>
+        <li><%= link_to "ログアウト", destroy_user_session_path,class: "sign-up", method: :delete %></li>
       </ul>
       <%# <% else %> %>
       <ul>
@@ -42,6 +42,11 @@
     </div>
     <div class="col bg-primary">
       投稿一覧表示機能 
+      <% @posts.each do |post| %>
+        <%= post.title %>
+        <%= post.text %>
+      <% end %>
+
     </div>
     <div class="col bg-danger">
       サブメニュー一覧
