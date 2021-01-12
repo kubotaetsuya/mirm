@@ -10,7 +10,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    tag_list = params[:post][:tag_ids].split(',')
     if @post.save
+      @post.save_tags(tag_list)
       redirect_to root_path
     else
       render :new

@@ -44,9 +44,11 @@
       投稿一覧表示機能 
       <% @posts.each do |post| %>
         <%= post.title %>
+        <% post.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
         <%= post.text %>
       <% end %>
-
     </div>
     <div class="col bg-danger">
       サブメニュー一覧

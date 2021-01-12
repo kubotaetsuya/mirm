@@ -1,4 +1,4 @@
 class TagRelationship < ApplicationRecord
-  belongs_to :micropost
+  belongs_to :post
   belongs_to :tag
 end
