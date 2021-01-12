@@ -23,37 +23,18 @@
   </div>
 </header>
 
+
 <div class="container">
-  <div class="row">
-    <div class="col bg-info">
-    <%# ナビゲーション「ジャンル別表示機能」 %>
-      <ul>
-        <li>ホーム</li>
-        <li>楽器</li>
-        <li>機材</li>
-        <li>レコーディング</li>
-        <li>ライブ</li>
-        <li>宅録</li>
-        <li>音楽基礎知識</li>
-        <li>雑学</li>
-        <li>作詞</li>
-        <li>作曲</li>
-      </ul>
-    </div>
-    <div class="col">
-      投稿一覧表示機能 
-      <% @posts.each do |post| %>
-        <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-        <% post.tags.each do |tag| %>
-          <%= tag.name %>
-        <% end %>
-        <%= post.text %>
-      <% end %>
-    </div>
-    <div class="col bg-danger">
-      サブメニュー一覧
-    </div>
+
+  <%# 画像表示 %>
+  <%= image_tag @post.image.variant(resize: '600x600'), class: 'img-thumbnail rounded mx-auto d-block' %>
+
+  <div>
+    <%= @post.title %>
   </div>
+  <div>
+    <%= @post.text %>
+  </div>
+  
 </div>
+
