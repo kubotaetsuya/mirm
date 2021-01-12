@@ -11,19 +11,20 @@
   justify-content: center;
 }
 
-.post_content {
-  width: 100%;
-  height: 100%;
+.image_btn {
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .post_field {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.post_form_image {
-  
 }
 
 .post_form_title {
