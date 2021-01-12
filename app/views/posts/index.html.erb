@@ -40,10 +40,12 @@
         <li>作曲</li>
       </ul>
     </div>
-    <div class="col bg-primary">
+    <div class="col">
       投稿一覧表示機能 
       <% @posts.each do |post| %>
-        <%= post.title %>
+        <%= link_to post_path(post.id) do %>
+          <%= post.title %>
+        <% end %>
         <% post.tags.each do |tag| %>
           <%= tag.name %>
         <% end %>
