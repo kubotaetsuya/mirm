@@ -1,46 +1,47 @@
 <div class="post_main">
 
   <header class="post_header">
-    <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
+    <%= link_to image_tag('MIRMlogo.png' , size: '120x120'), "/" %>
   </header>
 
-    <div class="container">
-    <%= form_with model: @post, local: true do |f| %>
+    <div class="container bg-white">
 
-      <div class="row">
-
-        <div class="col d-flex justify-content-center">
-          <div class="image_btn">
-            <%= f.label :image, class:"fa fa-file-picture-o fa-2x" do %>
-              <%= f.file_field :image, style: "display: none;", autocomplete: "image" %>
-            <% end %>
+      <%= form_with model: @post, local: true do |f| %>
+        <%# imageアップロード %>
+        <div class="row mb-2 mt-4">
+          <div class="col d-flex justify-content-center">
+                <%= f.label :image do %>
+                  <%= fa_icon "camera 3x" %>
+                <%= f.file_field :image, style: "display: none;", autocomplete: "image" %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col bg-primary">
-          <%= f.text_field :title, class:"post_form_title", placeholder:"タイトル" %>
+        <%# タイトルフォーム %>
+        <div class="row">
+          <div class="col form-group">
+            <%= f.text_field :title, class:"input_title shadow", placeholder:"タイトル" %>
+          </div>
         </div>
-      </div>
-
-
-      <div class="row">
-
-        <div class="col bg-primary">
-          <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids', placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+        <%# tagフォーム %>
+        <div class="row">
+          <div class="col form-group">
+            <%= f.text_field :tag_ids, class: "input_tag shadow", id:'tag_ids', placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+          </div>
         </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col bg-danger">
-          <%= f.text_area :text, class:"form_text", placeholder:"本文を書いてください" %>
+        <%# 本文フォーム %>
+        <div class="row">
+          <div class="col form-group">
+            <%= f.text_area :text, class:"form_text shadow", placeholder:"本文を書いてください" %>
+          </div>
         </div>
-      </div>
+        <%# 投稿ボタン %>
+        <div class="row">
+          <div class="col form-group d-flex justify-content-center">
+            <%= f.submit "投稿する", class:"form_submit"%>
+          </div>
+        </div>
+      <% end %>
 
-      <%= f.submit "投稿する", class:"form_submit"%>
-    <% end %>
     </div>
 </div>

@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many  :tag_relationships, dependent: :destroy # タグ付機能
   has_many  :tags, through: :tag_relationships # タグ付機能
 
-  has_many :comments  # commentsテーブルとのアソシエーション
+  has_many :comments # commentsテーブルとのアソシエーション
   
   def save_tags(savepost_tags)
     savepost_tags.each do |new_name|
