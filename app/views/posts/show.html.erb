@@ -23,40 +23,74 @@
   </div>
 </header>
 
-
-<div class="container">
-
+<div class="outline">
+<div class="container bg-white">
+  <div class="mx-5">
   <%# 画像表示 %>
-  <%= image_tag @post.image.variant(resize: '600x600'), class: 'img-thumbnail rounded mx-auto d-block' %>
+  <%= image_tag @post.image.variant(resize: '600x600'), class: 'img-thumbnail rounded mx-auto d-block mt-3' %>
 
-  <div>
-    <%= @post.title %>
+  <%# タイトル表示 %>
+  <div class="row w-100">
+    <div class="col h1 d-flex justify-content-center align-middle mt-5">
+      <%= @post.title %>
+    </div>
   </div>
-  <div>
-    <%= @post.text %>
+
+  <%# 本文表示 %>
+  <div class="row w-100">
+    <div class="col h5 d-flex justify-content-center align-middle my-3">
+      <%= @post.text %>
+    </div>
   </div>
 
 </div>
 
+<%# コメント一覧 %>
 <div class="container">
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+    <div class="comments my-3">
+      <h4 class="d-flex justify-content-center align-middle"><%= fa_icon "comment 1x " %>コメント一覧</h4>
+      <%# コメントユーザーネーム %>
       <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+        <div class="row d-flex justify-content-center align-middle">
+          <div class="col mt-3 font-weight-bold">
+            <%= link_to comment.user.name, "/users/#{comment.user_id}" %>
+          </div>
+        </div>
+        <%# コメント本文 %>
+        <div class="row border-bottom border-dark">
+          <div class="col d-flex justify-content-left align-middle my-3">
           <%= comment.text %>
-        </p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
 
-<div class="container">
+<%# コメント投稿フォーム %>
+<div class="container ">
+<%# ユーザー情報 %>
+  <div class="row">
+    <div class="col">
+      <p>ログインユーザー画像</p>
+      <p>投稿する</p>
+    </div>
+  </div>
+<%# ログイン確認 %>
   <% if user_signed_in? %>
-    <%= form_with(model: [@post, @comment], local: true) do |f| %>
-      <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-      <%= f.submit "SEND" %>
+  <%# コメントフォーム %>
+  <div class="row d-flex flex-column my-4">
+    <div class="col">
+      <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= f.text_area :text, class:"input_comment", placeholder: "コメントする", rows: "5" %>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <%= f.submit "投稿", class:"comment_form_submit"%>
+    </div>
+  </div>
+
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
-  <% else %>
-    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-  <% end %>
+  </div>
 </div>
