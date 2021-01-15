@@ -1,0 +1,38 @@
+.my_page_avatar {
+  border:1px solid whitesmoke;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin: 15px 5px;
+}
+
+.preview_image {
+  width: 500px;
+  height: 500px;
+}
+
+.my_page_post_text {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    line-height: 2;
+    color: #212529;
+    text-align: left;
+    margin: 0 60px;
+    background-color: #fff;
+}
+
+.my_page_tag {
+  display: flex;
+  justify-content: center;
+  margin-right: 65%;
+  margin-top: 1em;
+}
+
+a.view_article {
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+
+}

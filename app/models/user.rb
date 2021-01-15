@@ -5,4 +5,5 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
           has_many :comments  # commentsテーブルとのアソシエーション
           has_many :posts  # postsテーブルとのアソシエーション
+          has_one_attached:avatar  # ユーザーの画像とのアソシエーション
 end
