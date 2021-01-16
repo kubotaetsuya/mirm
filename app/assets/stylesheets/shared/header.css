@@ -1,0 +1,8 @@
+.post_btn {
+  color: black;
+}
+
+/* プルダウンメニュー非表示 */
+.hidden{
+  display: none;
+}
