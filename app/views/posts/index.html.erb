@@ -1,31 +1,8 @@
-<header>
-  <div class="container">
-    <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
-    <div class="title">MIRM
-    </div>
-    <div class="search">
-    検索フォーム
-    </div>
-    <div class="header_nav">
-      <%# <% if user_signed_in? %> %>
-      <ul>
-        <li>ユーザー詳細ページボタ</li>
-        <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path,class: "sign-up", method: :delete %></li>
-      </ul>
-      <%# <% else %> %>
-      <ul>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      </ul>
-      <%# <% end %> %>
-    </div>
-  </div>
-</header>
+<%= render "shared/header" %>
 
 <div class="container">
   <div class="row">
-    <div class="col bg-info">
+    <div class="col-3 bg-info">
     <%# ナビゲーション「ジャンル別表示機能」 %>
       <ul>
         <li>ホーム</li>
@@ -40,8 +17,9 @@
         <li>作曲</li>
       </ul>
     </div>
-    <div class="col">
-      投稿一覧表示機能 
+
+    <div class="col-5">
+      <%# 投稿一覧表示機能  %>
       <% @posts.each do |post| %>
         <%= link_to post_path(post.id) do %>
           <%= post.title %>
@@ -52,8 +30,36 @@
         <%= post.text %>
       <% end %>
     </div>
-    <div class="col bg-danger">
+
+    <div class="col-2 bg-danger">
       サブメニュー一覧
     </div>
   </div>
 </div>
+
+
+<header>
+  <div class="container d-flex justify-content">
+    <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
+    <div class="title">MIRM
+    </div>
+    <div class="search">
+    検索フォーム
+    </div>
+    <div class="header_nav">
+      <% if user_signed_in? %>
+        <ul>
+          <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
+          <li> <%= link_to "マイページ", "/users/#{current_user.id}" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path,class: "sign-up", method: :delete %></li>
+
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</header>

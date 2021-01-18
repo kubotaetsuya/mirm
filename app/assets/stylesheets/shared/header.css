@@ -1,8 +1,48 @@
-.post_btn {
-  color: black;
+.right_content {
+  position: relative;
+  height: 64px;
 }
 
 /* プルダウンメニュー非表示 */
 .hidden{
   display: none;
+}
+
+.show-lists {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  top: 10px;
+  background-color: white;
+  padding: 10px;
+  border: 1px lightgrey solid;
+
+}
+
+.list-item {
+  border-bottom: 1px lightgrey solid;
+
+  padding: 15px 10px;
+
+}
+
+.sign-my-page {
+  text-decoration: none;
+  color: black;
+
+}
+
+.sign-my-page:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.sign-out {
+  text-decoration: none;
+  color: black;
+}
+
+.sign-out:hover {
+  text-decoration: none;
+  color: black;
 }

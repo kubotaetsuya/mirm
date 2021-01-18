@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light pr-3">
+  <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <div class="right_content">
+    <ul class="nav justify-content-end">
+      <li class="nav-item align-self-center mr-3">
+        <%= link_to '投稿', new_post_path, class: "btn btn-outline-dark mr-4" %>
+      </li>
+      <li class="header_list bg-light" id="lists">
+        <%# サンプル画像 現在のユーザーの画像挿入予定 %>
+          <%= image_tag "sample.png", :size =>'50x50', class: "my_page_avatar"%>
+      </li>
+    </ul>
+    <% if user_signed_in? %>
+    <ul class="show-lists hidden" id="pull-down">
+      <li class="list-item"> <%= link_to "マイページ", "/users/#{current_user.id}",class: "sign-my-page" %></li>
+
+      <li class="list-item"><%= link_to "ログアウト", destroy_user_session_path,class: "sign-out", method: :delete %></li>
+    </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
