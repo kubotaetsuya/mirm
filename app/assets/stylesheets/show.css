@@ -1,5 +1,5 @@
 .outline {
-  background-color: black; 
+  background: linear-gradient(50deg,#000000 50%, #ffa600 50%);
   width: 100%;
 }
 

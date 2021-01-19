@@ -1,59 +1,74 @@
-<header>
-  <div class="container">
-    <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
-    <div class="title">MIRM
-    </div>
-    <div class="search">
-    検索フォーム
-    </div>
-    <div class="header_nav">
-      <%# <% if user_signed_in? %> %>
-      <ul>
-        <li>ユーザー詳細ページボタ</li>
-        <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path,class: "sign-up", method: :delete %></li>
-      </ul>
-      <%# <% else %> %>
-      <ul>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      </ul>
-      <%# <% end %> %>
-    </div>
-  </div>
-</header>
+<%= render "shared/header" %>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col bg-info">
-    <%# ナビゲーション「ジャンル別表示機能」 %>
-      <ul>
-        <li>ホーム</li>
-        <li>楽器</li>
-        <li>機材</li>
-        <li>レコーディング</li>
-        <li>ライブ</li>
-        <li>宅録</li>
-        <li>音楽基礎知識</li>
-        <li>雑学</li>
-        <li>作詞</li>
-        <li>作曲</li>
-      </ul>
+    <div class="col-1 mw-100 mh-100 bg-dark">
+      <%# ナビゲーション「ジャンル別表示機能」 %>
+      <nav class="navbar navbar-dark text-light bg-dark fixed-left">
+        <ul class="navbar-nav">
+          <span class="navbar-brand mb-0 h1">Navbar</span>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">楽器</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">機材</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">レコーディング</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ライブ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">宅録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">音楽基礎知識</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">雑学</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">作詞</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">作曲</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div class="col">
-      投稿一覧表示機能 
+    <%# 投稿一覧表示機能  %>
+    <div class="col-8">
       <% @posts.each do |post| %>
-        <%= link_to post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-        <% post.tags.each do |tag| %>
-          <%= tag.name %>
-        <% end %>
-        <%= post.text %>
+      <div class="container d-flex justify-content-end my-5">
+        <div class="card" style="width: 45rem;">
+          <%= link_to post_path(post.id) do %>
+          <%# 投稿イメージ画像 %>
+            <%= image_tag post.image.variant(resize: '500x500'), class: "card-img-top" %>
+            <% end %>
+            <%# 投稿タイトル %>
+            <div class="card-title text-center mt-4">
+              <h2 class=""><%= post.title %></h2>
+            </div>
+            <%# 投稿内容 %>
+            <p class="main-post-text card-text text-center px-3">
+              <%= truncate(post.text, length: 200) %>
+            </p>
+            <%# 関連タグ %>
+            <% post.tags.each do |tag| %>
+            <div class="card-footer text-muted">
+              <button type="button" class="btn btn-outline-dark"><%= tag.name %></button>
+            </div>
+            <% end %>
+        </div>
+      </div>
       <% end %>
-    </div>
-    <div class="col bg-danger">
-      サブメニュー一覧
     </div>
   </div>
 </div>
