@@ -2,9 +2,9 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-1 mw-100 mh-100 bg-dark">
+    <div class="main-nav col-2 mw-100 mh-100">
       <%# ナビゲーション「ジャンル別表示機能」 %>
-      <nav class="navbar navbar-dark text-light bg-dark fixed-left">
+      <nav class="navbar navbar-dark text-light fixed-left">
         <ul class="navbar-nav">
           <span class="navbar-brand mb-0 h1">Navbar</span>
           <li class="nav-item active">
@@ -44,7 +44,7 @@
       </nav>
     </div>
     <%# 投稿一覧表示機能  %>
-    <div class="col-8">
+    <div class="col-7">
       <% @posts.each do |post| %>
       <div class="container d-flex justify-content-end my-5">
         <div class="card" style="width: 45rem;">

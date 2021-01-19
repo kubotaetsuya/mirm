@@ -1,3 +1,6 @@
+.header-nav {
+  background-color: orange;
+}
 
 .right_content {
   position: relative;
@@ -7,6 +10,10 @@
 /* プルダウンメニュー非表示 */
 .hidden{
   display: none;
+}
+
+.header_list {
+  margin: 15px 5px;
 }
 
 .show-lists {

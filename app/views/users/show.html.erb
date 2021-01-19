@@ -1,28 +1,4 @@
-<header>
-  <div class="container">
-    <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
-    <div class="title">MIRM
-    </div>
-    <div class="search">
-    検索フォーム
-    </div>
-    <div class="header_nav">
-      <% if user_signed_in? %>
-      <ul>
-        <li><%= link_to '投稿', new_post_path, class: "post_btn" %></li>
-        <li> <%= link_to "マイページ", "/users/#{current_user.id}" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path,class: "sign-up", method: :delete %></li>
-
-      </ul>
-      <% else %>
-      <ul>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign_up" %></li>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      </ul>
-      <% end %>
-    </div>
-  </div>
-</header>
+<%= render "shared/header" %>
 
   <div classs="container-fluid">
     <%# ユーザー情報 %>
@@ -50,7 +26,6 @@
       </div>
     </div>
 
-<div class="outline">
   <div class="container-lg d-flex justify-content-center">
       <%# マイページの投稿一覧 %>
     <div class="row mt-4 mb-5">
@@ -91,4 +66,3 @@
       </div>
     </div>
   </div>
-</div>

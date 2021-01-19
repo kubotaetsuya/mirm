@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light pr-3">
+<nav class="header-nav navbar navbar-light pr-3">
   <%= link_to image_tag('MIRMlogo.png' , size: '100x100'), "/" %>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -19,7 +19,7 @@
           <%= link_to '投稿', new_post_path, class: "btn btn-outline-dark mr-4" %>
         </li>
       <% end %>
-      <li class="header_list bg-light" id="lists">
+      <li class="header_list" id="lists">
         <%# サンプル画像 現在のユーザーの画像挿入予定 %>
           <%= image_tag "sample.png", :size =>'50x50', class: "my_page_avatar"%>
       </li>
