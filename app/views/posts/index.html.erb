@@ -61,11 +61,11 @@
               <%= truncate(post.text, length: 200) %>
             </p>
             <%# 関連タグ %>
-            <% post.tags.each do |tag| %>
             <div class="card-footer text-muted">
-              <button type="button" class="btn btn-outline-dark"><%= tag.name %></button>
-            </div>
+            <% post.tags.each do |tag| %>
+              <button type="button" class="btn btn-outline-dark mx-2"><%= tag.name %></button>
             <% end %>
+            </div>
         </div>
       </div>
       <% end %>

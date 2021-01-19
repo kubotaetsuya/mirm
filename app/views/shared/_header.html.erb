@@ -7,8 +7,8 @@
 
     <% unless user_signed_in? %>
     <ul class="d-flex justify-content-start pt-4">
-      <li class="list-item"><%= link_to '新規登録', new_user_registration_path, class: "sign_up btn btn-outline-warning" %></li>
-      <li class="list-item"><%= link_to 'ログイン', new_user_session_path, class: "login btn btn-outline-warning" %></li>
+      <li class="list-item"><%= link_to '新規登録', new_user_registration_path, class: "sign_up btn btn-outline-dark" %></li>
+      <li class="list-item"><%= link_to 'ログイン', new_user_session_path, class: "login btn btn-outline-dark" %></li>
     </ul>
   <% end %>
 
@@ -18,11 +18,11 @@
         <li class="nav-item align-self-center mr-3">
           <%= link_to '投稿', new_post_path, class: "btn btn-outline-dark mr-4" %>
         </li>
-      <% end %>
       <li class="header_list" id="lists">
         <%# サンプル画像 現在のユーザーの画像挿入予定 %>
           <%= image_tag "sample.png", :size =>'50x50', class: "my_page_avatar"%>
       </li>
+      <% end %>
     </ul>
     <%# ドロップダウンリスト %>
     <% if  user_signed_in? %>

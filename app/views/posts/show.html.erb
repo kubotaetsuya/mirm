@@ -34,9 +34,9 @@
           </div>
           <%# コメント本文 %>
           <div class="row border-bottom border-dark">
-            < class="col d-flex justify-content-left align-middle my-3">
+            <div class="col d-flex justify-content-left align-middle my-3">
             <%= comment.text %>
-            </>
+            </div>
           </div>
         <% end %>
       </div>
@@ -63,8 +63,7 @@
         <%= f.submit "投稿", class:"comment_form_submit"%>
       </div>
     </div>
-
-        <% end %>
+    <% end %>
       <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
       <% end %>
