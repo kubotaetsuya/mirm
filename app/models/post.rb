@@ -7,6 +7,14 @@ class Post < ApplicationRecord
 
   has_many :comments # commentsテーブルとのアソシエーション
 
+  # バリデーション
+  with_options presence: true do
+    validates :text
+    validates :image
+  end
+
+  validates :title, {length: {in: 1..50} }
+
   def save_tags(savepost_tags)
     savepost_tags.each do |new_name|
       post_tag = Tag.find_or_create_by(name: new_name)
