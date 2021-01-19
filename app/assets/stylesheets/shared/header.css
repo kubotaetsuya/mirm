@@ -1,3 +1,4 @@
+
 .right_content {
   position: relative;
   height: 64px;
@@ -20,8 +21,8 @@
 }
 
 .list-item {
-  border-bottom: 1px lightgrey solid;
 
+  list-style: none;
   padding: 15px 10px;
 
 }
