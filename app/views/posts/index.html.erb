@@ -47,7 +47,7 @@
     <div class="col-7">
       <% @posts.each do |post| %>
       <div class="container d-flex justify-content-end my-5">
-        <div class="card" style="width: 45rem;">
+        <div class="card" style="width: 35rem;">
           <%= link_to post_path(post.id) do %>
           <%# 投稿イメージ画像 %>
             <%= image_tag post.image.variant(resize: '500x500'), class: "card-img-top" %>
