@@ -19,7 +19,7 @@
 
 /* 背景画像 */
 .sessions_background {
-  background-image: url("background.png");
+  background-image: url('../background.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;

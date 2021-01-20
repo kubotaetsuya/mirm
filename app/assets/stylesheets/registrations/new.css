@@ -20,7 +20,7 @@
 /* 背景画像 */
 .registration_background {
   background-image: 
-  url('background.png');
+  url('../background.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
