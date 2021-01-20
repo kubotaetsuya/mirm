@@ -6,6 +6,7 @@
 
     <div class="container bg-white">
       <div class="mx-3">
+      <%= render "shared/error_messages", model: @post %>
       <%= form_with model: @post, local: true do |f| %>
         <%# imageアップロード %>
         <div class="row mb-2 mt-4">

@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
-  
   def index
     @posts = Post.all
   end
-  
+
   def new
     @post = Post.new
   end
@@ -11,7 +10,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     tag_list = params[:post][:tag_ids].split(',')
-    if @post.save
+    if @post.valid?
+      @post.save
       @post.save_tags(tag_list)
       redirect_to root_path
     else
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
   end
-  
+
   private
 
   def post_params
