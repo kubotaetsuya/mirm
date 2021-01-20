@@ -19,7 +19,7 @@
 
 /* 背景画像 */
 .registration_background {
-  background-image: url("../background.png");
+  background-image: url("/Users/etsuya/projects/mirm/app/assets/images/background.png");
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
