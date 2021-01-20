@@ -1,6 +1,14 @@
   <%= render "shared/header" %>
 
   <div class="container bg-white">
+        <ul class="list-group list-group-horizontal-md">
+          <li class="list-group-item">
+          <button type="button" class="btn btn-light"><%= link_to '編集', edit_post_path(@post.id), method: :get %></button>
+          </li>
+          <li class="list-group-item">
+          <button type="button" class="btn btn-light"><%= link_to '削除', post_path(@post.id), method: :delete %></button>
+          </li>
+        </ul>
     <div class="mx-5">
     <%# 画像表示 %>
     <%= image_tag @post.image.variant(resize: '600x600'), class: 'img-thumbnail rounded mx-auto d-block mt-3' %>
