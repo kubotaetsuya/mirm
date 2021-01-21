@@ -3,6 +3,7 @@
   <div classs="container-fluid">
     <%# ユーザー情報 %>
     <div class="row">
+    <button type="button" class="btn btn-light"><%= link_to '編集', edit_user_path, method: :get %></button>
         <%# ユーザー画像 %>
       <div class="col-4 pt-2 d-flex justify-content-end ">
         <% if @user.avatar.attached? %>
