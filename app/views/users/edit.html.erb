@@ -1,16 +1,14 @@
-<<<<<<< Updated upstream
-<h1>こんにちは</h1>
-=======
+
 <header class="post_header">
     <%= link_to image_tag('MIRMlogo.png' , size: '120x120'), "/" %>
 </header>
 
 <div class="container">
 <%= form_with model: @user, url:user_registration_path, local: true do |f| %> 
-  <div class="col d-flex justify-content-center">
-    <%= f.label :avatar  do %>
+  <div class="col d-flex justify-content-center pt-5">
+    <%= f.label :avatar do %>
     <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar.variant(resize: '100x100'), class: "my_page_avatar"%>
+        <%= image_tag @user.avatar.variant(resize: '200x200'), class: "my_page_avatar"%>
       <% else %>
         <%# 画像がない時のサンプルデータ %>
       <%= image_tag "sample.png", :size =>'100x100', class: "my_page_avatar"%>
@@ -30,11 +28,11 @@
       <label class="form_label">
         自己紹介文
       </label>
-      <%= f.text_area :description, class:"input-text",id:"description",placeholder:"あなたの自己紹介文を140字で書いてください",maxlength:"1000", rows: "10" %>
+      <%= f.text_area :description, class:"input-text",id:"description",placeholder:"あなたの自己紹介文を140字で書いてください",maxlength:"140", rows: "10" %>
     </div>
     <div class="col form-group d-flex justify-content-center">
       <%= f.submit "投稿する", class:"form_submit"%>
     </div>
   <% end %>
 </div>
->>>>>>> Stashed changes
+

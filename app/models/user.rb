@@ -11,10 +11,10 @@ class User < ApplicationRecord
   validates :email, uniqueness:true
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX
+  validates_format_of :password, with: PASSWORD_REGEX, on: :create
 
   with_options presence: true do
-    validates :password
+    validates :password, on: :create
     validates :name
   end
 
