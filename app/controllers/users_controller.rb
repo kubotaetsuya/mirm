@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     if current_user.update(user_params)
       redirect_to root_path
     else
@@ -18,6 +19,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :description, :age, :gender)
+      params.require(:user).permit(:name, :email, :description, :age, :gender, :avatar)
     end
 end
