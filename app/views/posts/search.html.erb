@@ -1,0 +1,75 @@
+<%= render "shared/header" %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="main-nav col-2 mw-100 mh-100">
+      <%# ナビゲーション「ジャンル別表示機能」 %>
+      <nav class="navbar navbar-dark text-light fixed-left">
+        <ul class="navbar-nav">
+          <span class="navbar-brand mb-0 h1">Navbar</span>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">楽器</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">機材</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">レコーディング</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ライブ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">宅録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">音楽基礎知識</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">雑学</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">作詞</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">作曲</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <%# 投稿一覧表示機能  %>
+    <div class="col-7">
+      <% @posts.each do |post| %>
+      <div class="container d-flex justify-content-end my-5">
+        <div class="card" style="width: 35rem;">
+          <%= link_to post_path(post.id) do %>
+          <%# 投稿イメージ画像 %>
+            <%= image_tag post.image.variant(resize: '500x500'), class: "card-img-top" %>
+            <% end %>
+            <%# 投稿タイトル %>
+            <div class="card-title text-center mt-4">
+              <h2 class=""><%= post.title %></h2>
+            </div>
+            <%# 投稿内容 %>
+            <p class="main-post-text card-text text-center px-3">
+              <%= truncate(post.text, length: 200) %>
+            </p>
+            <%# 関連タグ %>
+            <div class="card-footer text-muted">
+            <% post.tags.each do |tag| %>
+              <button type="button" class="btn btn-outline-dark mx-2"><%= tag.name %></button>
+            <% end %>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>
