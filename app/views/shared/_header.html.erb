@@ -9,7 +9,7 @@
     <ul class="d-flex justify-content-start pt-4">
       <li class="list-item"><%= link_to '新規登録', new_user_registration_path, class: "sign_up btn btn-outline-dark" %></li>
       <li class="list-item"><%= link_to 'ログイン', new_user_session_path, class: "login btn btn-outline-dark" %></li>
-      <li class="list-item"><%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post %></li>
+      <li class="list-item"><%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-outline-dark' %></li>
     </ul>
   <% end %>
 
