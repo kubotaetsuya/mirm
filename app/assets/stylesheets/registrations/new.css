@@ -64,7 +64,10 @@
   border: 1px solid #ccc;
   background: #fff;
   font-size: 16px;
+  /* 枠の幅 */
   resize: none;
+  /* 文字の感覚 */
+  letter-spacing: 0.2em;
 }
 
 .password_info {
