@@ -15,6 +15,14 @@ class Post < ApplicationRecord
 
   validates :title, {length: {in: 1..50} }
 
+  def self.search(search)
+    if search != ""
+      Post.where('title LIKE(?)', "%#{search}%")
+    else
+      Post.all
+    end
+  end
+
   def save_tags(savepost_tags)
     savepost_tags.each do |new_name|
       post_tag = Tag.find_or_create_by(name: new_name)
