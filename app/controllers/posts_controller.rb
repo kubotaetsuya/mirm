@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+    @tag_lists = Tag.all
   end
 
   def new
@@ -47,6 +49,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :text, :image, tag_ids: []).merge(user_id: current_user.id)
   end
 end
