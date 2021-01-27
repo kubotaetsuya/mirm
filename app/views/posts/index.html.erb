@@ -6,7 +6,6 @@
       <%# ナビゲーション「ジャンル別表示機能」 %>
       <nav class="navbar navbar-dark text-light fixed-left">
         <ul class="navbar-nav">
-          <span class="navbar-brand mb-0 h1">Navbar</span>
           <li class="nav-item active">
             <a class="nav-link" href="#">ホーム</a>
           </li>
@@ -41,6 +40,15 @@
             <a class="nav-link" href="#">作曲</a>
           </li>
         </ul>
+        <%= form_with url: root_path, method: :get, class: '自由に' do %>
+          <%= select_tag :tag_id,
+            options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+            {
+              prompt: 'タグで絞り込み',
+              # class: ,'自由に'
+              onchange: 'submit(this.form);'
+            }%>
+        <% end %>
       </nav>
     </div>
     <%# 投稿一覧表示機能  %>
@@ -62,9 +70,9 @@
             </p>
             <%# 関連タグ %>
             <div class="card-footer text-muted">
-            <% post.tags.each do |tag| %>
-              <button type="button" class="btn btn-outline-dark mx-2"><%= tag.name %></button>
-            <% end %>
+                <% post.tags.each do |tag| %>
+                  <button type="button" class="btn btn-outline-dark mx-2"><%= tag.name %></button>
+                <% end %>
             </div>
         </div>
       </div>
