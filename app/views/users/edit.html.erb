@@ -5,9 +5,9 @@
 <div class="container">
 <%= form_with model: @user, url:user_registration_path, local: true do |f| %> 
   <div class="col d-flex justify-content-center pt-5">
-    <%= f.label :avatar do %>
+    <%= f.label :avatar, id:"idea-image" do %>
     <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar.variant(resize: '200x200'), class: "my_page_avatar"%>
+        <%= image_tag @user.avatar.variant(resize: '200x200'), class: "my_page_avatar", id: "image" %>
       <% else %>
         <%# 画像がない時のサンプルデータ %>
       <%= image_tag "sample.png", :size =>'100x100', class: "my_page_avatar"%>
