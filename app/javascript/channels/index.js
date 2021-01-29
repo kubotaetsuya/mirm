@@ -4,7 +4,7 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-window.addEventListener('load', function(){
+function pullDown() {
 
   const pullDownButton = document.getElementById("lists")
   const pullDownParents = document.getElementById("pull-down")
@@ -27,4 +27,6 @@ window.addEventListener('load', function(){
         pullDownParents.setAttribute("style", "display:block;")
       }
     })
-  })
+  }
+
+window.addEventListener('load', pullDown)

@@ -4,20 +4,26 @@
     <%= link_to image_tag('MIRMlogo.png' , size: '120x120'), "/" %>
   </header>
 
-    <div class="container bg-white">
-      <div class="mx-3">
-      <%= render "shared/error_messages", model: @post %>
-      <%= form_with model: @post, local: true do |f| %>
-        <%# imageアップロード %>
-        <div class="row mb-2 mt-4">
-          <div class="col d-flex justify-content-center">
-                <%= f.label :image do %>
-                  <%= fa_icon "camera 3x" %>
-                <%= f.file_field :image, style: "display: none;", autocomplete: "image" %>
-              <% end %>
-            </div>
-          </div>
+  <div class="container bg-white">
+    <div class="mx-3">
+    <%= render "shared/error_messages", model: @post %>
+    <%= form_with model: @post, local: true do |f| %>
+      <%# imageアップロード %>
+      <div class="right-img-upload d-flex justify-content-center">
+        <div id="image"></div>
+      </div>
+      <div class="row mb-2 mt-4">
+        <div class="right-img-upload">
+          <div id="image"></div>
         </div>
+        <div class="col d-flex justify-content-center">
+          <%= f.label :image, id:"idea-image" do %>
+            <%= fa_icon "camera 3x" %>
+          <%= f.file_field :image, style: "display: none;", autocomplete: "image" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
         <%# タイトルフォーム %>
         <div class="row">
           <div class="col form-group">
