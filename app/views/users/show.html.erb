@@ -40,6 +40,7 @@
         <% @post.each do |my_post| %>
           <%# 投稿詳細ページにリンク %>
           <div class="card mb-3" style="width: 50rem;">
+
             <%= link_to post_path(my_post.id) do %>
               <%# 投稿イメージ画像 %>
               <%= image_tag my_post.image.variant(resize: '500x500'), class: 'img-thumbnail rounded mx-auto d-block mt-5' %>
