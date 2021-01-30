@@ -29,4 +29,5 @@ class Post < ApplicationRecord
       tags << post_tag
     end
   end
+
 end

@@ -1,7 +1,8 @@
   <%= render "shared/header" %>
 
   <div class="container bg-white">
-        <ul class="list-group list-group-horizontal-md">
+    <% if  user_signed_in? %>
+        <ul class="list-group list-group-horizontal-md  d-flex justify-content-center">
           <li class="list-group-item">
           <button type="button" class="btn btn-light"><%= link_to '編集', edit_post_path(@post.id), method: :get %></button>
           </li>
@@ -9,6 +10,8 @@
           <button type="button" class="btn btn-light"><%= link_to '削除', post_path(@post.id), method: :delete %></button>
           </li>
         </ul>
+        <% else %>
+      <% end %>
     <div class="mx-5">
     <%# 画像表示 %>
     <%= image_tag @post.image.variant(resize: '600x600'), class: 'img-thumbnail rounded mx-auto d-block mt-3' %>
@@ -23,7 +26,7 @@
     <%# 本文表示 %>
     <div class="row w-100">
       <div class="col h5 d-flex justify-content-center align-middle my-3">
-        <%= @post.text %>
+        <div class="show-text"><%=safe_join(@post.text.split("\n"),tag(:br))%></div>
       </div>
     </div>
 
@@ -55,8 +58,12 @@
   <%# ユーザー情報 %>
     <div class="row">
       <div class="col">
-        <p>ログインユーザー画像</p>
-        <p>投稿する</p>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar.variant(resize: '100x50'), class: "my_page_avatar", id: "image" %>
+        <% else %>
+          <%= image_tag "sample.png", :size =>'50x50', class: "my_page_avatar"%>
+      <% end %>
+        <span class="span">投稿する</span>
       </div>
     </div>
   <%# ログイン確認 %>

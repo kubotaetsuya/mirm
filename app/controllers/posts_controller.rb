@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+    @user = current_user
   end
 
   def destroy
@@ -44,7 +45,11 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword])
+    if @posts = Post.search(params[:keyword])
+    else
+      @posts = Post.search(tag.id) 
+    end
+    @user = current_user 
   end
 
   private

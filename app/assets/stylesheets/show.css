@@ -24,3 +24,11 @@
   background: black;
   color: whitesmoke;
 }
+
+.show-text {
+  width: 100%;
+  margin-top: 5px;
+  background: #fff;
+  letter-spacing: 0.2em;
+  line-height: 3rem;
+}

@@ -71,7 +71,9 @@
             <%# 関連タグ %>
             <div class="card-footer text-muted">
                 <% post.tags.each do |tag| %>
+                <%= link_to search_posts_path(tag.id) do %>
                   <button type="button" class="btn btn-outline-dark mx-2"><%= tag.name %></button>
+                  <% end %>
                 <% end %>
             </div>
         </div>
