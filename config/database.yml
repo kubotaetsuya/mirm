@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: mirm_production
-  username: mirm
-  password: <%= ENV['MIRM_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
