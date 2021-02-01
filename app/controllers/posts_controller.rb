@@ -45,10 +45,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    if @posts = Post.search(params[:keyword])
-    else
-      @posts = Post.search(tag.id) 
-    end
+    @posts = Post.search(params[:keyword])
     @user = current_user 
   end
 
