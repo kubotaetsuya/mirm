@@ -58,6 +58,8 @@
   <%# ユーザー情報 %>
     <div class="row">
       <div class="col">
+        <%# ログイン確認 %>
+        <% if user_signed_in? %>
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar.variant(resize: '100x50'), class: "my_page_avatar", id: "image" %>
         <% else %>
@@ -66,8 +68,6 @@
         <span class="span">投稿する</span>
       </div>
     </div>
-  <%# ログイン確認 %>
-    <% if user_signed_in? %>
     <%# コメントフォーム %>
     <div class="row d-flex flex-column my-4">
       <div class="col">
@@ -80,6 +80,6 @@
     </div>
     <% end %>
       <% else %>
-        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <strong><p class="d-flex justify-content-center">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
       <% end %>
   </div>
