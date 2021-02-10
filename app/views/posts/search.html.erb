@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="main-nav col-2 mw-100 mh-100">
-      <%# ナビゲーション「ジャンル別表示機能」 %>
+  <div class="row d-flex justify-content-center">
+    <%# <div class="main-nav col-2 mw-100 mh-100">
+      ナビゲーション「ジャンル別表示機能」
       <nav class="navbar navbar-dark text-light fixed-left">
         <ul class="navbar-nav">
           <span class="navbar-brand mb-0 h1">Navbar</span>
@@ -42,11 +42,11 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </div> %>
     <%# 投稿一覧表示機能  %>
-    <div class="col-7">
+    <div class="col-10 d-flex justify-content-center">
       <% @posts.each do |post| %>
-      <div class="container d-flex justify-content-end my-5">
+      <div class="container d-flex justify-content-center my-5">
         <div class="card" style="width: 35rem;">
           <%= link_to post_path(post.id) do %>
           <%# 投稿イメージ画像 %>

@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="main-nav col-2 mw-100 mh-100">
-      <%# ナビゲーション「ジャンル別表示機能」 %>
+  <div class="row  d-flex justify-content-center ">
+    <%# <div class="main-nav col-2 mw-100 mh-100">
+      ナビゲーション「ジャンル別表示機能」
       <nav class="navbar navbar-dark text-light fixed-left">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -40,21 +40,12 @@
             <a class="nav-link" href="#">作曲</a>
           </li>
         </ul>
-        <%= form_with url: root_path, method: :get, class: '自由に' do %>
-          <%= select_tag :tag_id,
-            options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-            {
-              prompt: 'タグで絞り込み',
-              # class: ,'自由に'
-              onchange: 'submit(this.form);'
-            }%>
-        <% end %>
       </nav>
-    </div>
+    </div> %>
     <%# 投稿一覧表示機能  %>
-    <div class="col-7">
+    <div class="col-10">
       <% @posts.each do |post| %>
-      <div class="container d-flex justify-content-end my-5">
+      <div class="container d-flex justify-content-center my-5">
         <div class="card" style="width: 35rem;">
           <%= link_to post_path(post.id) do %>
           <%# 投稿イメージ画像 %>
