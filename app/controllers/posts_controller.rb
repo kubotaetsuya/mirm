@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, only: [:edit, :destroy]
+  before_action :set_post, only: [:edit, :show]
+  before_action :set_current_user, only: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order(created_at: 'desc')
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
     @tag_lists = Tag.all
-    @user = current_user
   end
 
   def new
@@ -23,10 +27,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
-    @user = current_user
   end
 
   def destroy
@@ -36,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
@@ -46,12 +47,23 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
-    @user = current_user 
   end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :text, :image, tag_ids: []).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in? && current_user.id == Post.find(params[:id]).user_id
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def set_current_user
+    @user = current_user
   end
 end

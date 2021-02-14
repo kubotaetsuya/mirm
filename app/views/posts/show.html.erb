@@ -1,7 +1,7 @@
   <%= render "shared/header" %>
 
   <div class="container bg-white">
-    <% if  user_signed_in? %>
+    <% if  user_signed_in? && current_user.id == Post.find(params[:id]).user_id %>
         <ul class="list-group list-group-horizontal-md  d-flex justify-content-center">
           <li class="list-group-item">
           <button type="button" class="btn btn-light"><%= link_to '編集', edit_post_path(@post.id), method: :get %></button>
